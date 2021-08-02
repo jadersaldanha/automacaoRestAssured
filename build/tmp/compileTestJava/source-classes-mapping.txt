@@ -1,4 +1,4 @@
-TestaSpotiFyApi.java
- TestaSpotiFyApi
 EncodeToken.java
  EncodeToken
+TestaSpotiFyApi.java
+ TestaSpotiFyApi

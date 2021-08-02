@@ -13,6 +13,7 @@ import static org.hamcrest.CoreMatchers.hasItem;
 public class TestaSpotiFyApi {
 
     public static String accessToken = "";
+    public static String accessToken2 = "";
     public static String payload = "{\"name\":\"New Playlist69\",\"description\":\"New playlist description\",\"public\":false}";
 
     @BeforeAll
@@ -39,6 +40,7 @@ public class TestaSpotiFyApi {
                 post("token");
 
         accessToken = response.jsonPath().get("access_token");
+        accessToken2 = response.jsonPath().get("refresh_token");
     }
 
     /**
@@ -102,9 +104,9 @@ public class TestaSpotiFyApi {
 
         given()
                 .header("Content-Type", "application/json")
-                .header("Authorization", "Bearer BQCi8vQ-VNhwbZl5yXhVlvx7lSHBKL9mNWtQcw1aO8nS_BXAzLWBf-gHYQAdqlwbp2z0TiAessvcbxpbQMALTUuK4Lg4mQRaTKTJN9nqaKnfcylCnsZxyZ1pc6J5ntegeDd1j4tZhmAu9iSQdTuf3v4yHZ323Rn2aSsEKAqWQAsf3iA0o_4ZdFU-anHlZlPhjZuQ5Eratb-7gTb8zt8jNFLI7Ntj_KWp9_--fH87I0yptLMXK1_bvA5YnkHUEg8iOkenxSKVqMU_zF9zvibPdFeJZshB")
+                .header("Authorization", "Bearer BQCJDb6pNNaoZDdj2_ZJm1cqIchCHMPqCuLfJGB7ihVsLn00CIag4OmTnrI1gwZWPje06OV7xfw6c0FY8Z_Ogmt8pjz4waEXjRlR-IZxHQnP-N4oX1Lo10-Qsf6A-12GXVlaloD3YTWjyoso6gbj3QMltiMv4HiDVnnZb78oS7ta2fh6J1Q19N_Xg30rqu51MZ8J44hzUCFjC9-VAmc8FjUy7Wy5XfmnHUCAk97yN5NL1obHZNQGIMc1LdcNSpjQv13pcfxPpBT89-2EZFMCMurvq_c5")
                 .body(payload)
                 .when()
-                .post("users/{user_id}/playlists","jadersaldanha");
+                .post("\thttps://api.spotify.com/v1/users/{user_id}/playlists","jadersaldanha");
     }
 }

@@ -1,0 +1,31 @@
+plugins {
+    id 'java'
+}
+
+group 'com.automacaoRestAssured'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    restAssuredVersion = '3.1.0'
+    junitVersion = '5.1.1'
+}
+
+dependencies {
+    testCompile("io.rest-assured:rest-assured:${restAssuredVersion}")
+    testCompile("io.rest-assured:json-path:${restAssuredVersion}")
+    testCompile("io.rest-assured:json-schema-validator:${restAssuredVersion}")
+
+    testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
+
+    testCompile 'com.sparkjava:spark-core:2.3'
+    // https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple
+    // https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple
+
+
+
+}

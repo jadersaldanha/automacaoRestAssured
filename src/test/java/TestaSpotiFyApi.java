@@ -13,8 +13,8 @@ import static org.hamcrest.CoreMatchers.hasItem;
 public class TestaSpotiFyApi {
 
     public static String accessToken = "";
-    public static String accessToken2 = "";
-    public static String payload = "{\"name\":\"New Playlist69\",\"description\":\"New playlist description\",\"public\":false}";
+    public static String accessToken2 = "BQDVF5oRm5hwZFzhR7tFUW9hM6m9RpeXmtTmEB4zSsv3P8eWAnU95_iZX3Y5RUaCJylyVqZgKAvlvufIuHR2uTAj_jKSLvsMBkF564_ukiFJ4iu8ikQbSpk7p0PG7De0q0bFWTY6e_rcddqLwpO48Ds-iVYM9B7Bxqc1O3asL43Lbfkx3z3g20cnOzz0IEl0hDqSHSqVpAlSxw0MHqqDNmTVxYA57ilc";
+    public static String payload = "{\"name\":\"New Playlists\",\"description\":\"New playlist description\",\"public\":false}";
 
     @BeforeAll
     public static void authenticationSpotify(){
@@ -40,7 +40,6 @@ public class TestaSpotiFyApi {
                 post("token");
 
         accessToken = response.jsonPath().get("access_token");
-        accessToken2 = response.jsonPath().get("refresh_token");
     }
 
     /**
@@ -104,9 +103,9 @@ public class TestaSpotiFyApi {
 
         given()
                 .header("Content-Type", "application/json")
-                .header("Authorization", "Bearer BQCJDb6pNNaoZDdj2_ZJm1cqIchCHMPqCuLfJGB7ihVsLn00CIag4OmTnrI1gwZWPje06OV7xfw6c0FY8Z_Ogmt8pjz4waEXjRlR-IZxHQnP-N4oX1Lo10-Qsf6A-12GXVlaloD3YTWjyoso6gbj3QMltiMv4HiDVnnZb78oS7ta2fh6J1Q19N_Xg30rqu51MZ8J44hzUCFjC9-VAmc8FjUy7Wy5XfmnHUCAk97yN5NL1obHZNQGIMc1LdcNSpjQv13pcfxPpBT89-2EZFMCMurvq_c5")
+                .header("Authorization", "Bearer "+accessToken2)
                 .body(payload)
                 .when()
-                .post("\thttps://api.spotify.com/v1/users/{user_id}/playlists","jadersaldanha");
+                .post("users/{user_id}/playlists","jadersaldanha");
     }
 }
